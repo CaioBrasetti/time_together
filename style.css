@@ -1,7 +1,8 @@
+/* Fonte principal do conteúdo */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: #fff0f5;
   display: flex;
   justify-content: center;
@@ -9,6 +10,7 @@ body {
   min-height: 100vh;
 }
 
+/* Cartão branco com sombra */
 .card {
   background: white;
   border-radius: 16px;
@@ -21,12 +23,14 @@ body {
   align-items: center;
 }
 
+/* Envolve a imagem */
 .photo-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
+/* Imagem com tamanho controlado */
 .main-photo {
   width: 100%;
   max-width: 300px;
@@ -36,16 +40,20 @@ body {
   margin-bottom: 16px;
 }
 
+/* Envolve o texto */
 .text-wrapper {
   text-align: center;
 }
 
+/* Título com fonte romântica */
 h1 {
-  font-size: 1.5em;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2em;
   color: #c71585;
   margin: 0 0 10px;
 }
 
+/* Contador com estilo neutro e legível */
 .timer {
   font-size: 1.3em;
   color: #444;
