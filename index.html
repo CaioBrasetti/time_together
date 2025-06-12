@@ -1,79 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Nosso Amor</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nosso Amor ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
   <style>
     body {
-      text-align: center;
-      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
       background: #fff0f6;
-      padding: 20px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
     }
-    img {
-      width: 200px;
-      margin: 10px;
-      border-radius: 10px;
+
+    .container {
+      text-align: center;
+      padding: 30px;
+      max-width: 600px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: #e91e63;
+    }
+
+    .timer {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin: 20px 0;
+      color: #d81b60;
+    }
+
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding-bottom: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform .3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <h1>Estamos juntos há:</h1>
-  <h2 id="timer"></h2>
-
-  <div>
-    <h3>Nossos momentos:</h3>
-    <img src="foto1.jpg" alt="Foto 1">
-    <img src="foto2.jpg" alt="Foto 2">
-    <!-- Pode adicionar mais imagens -->
+  <div class="container">
+    <h1>❤️ Estamos juntos há:</h1>
+    <div id="timer" class="timer"></div>
+    <div class="gallery">
+      <img src="foto1.jpg" alt="Moment 1">
+      <img src="foto2.jpg" alt="Moment 2">
+      <img src="foto3.jpg" alt="Moment 3">
+    </div>
   </div>
 
   <script>
-  const startDate = new Date(2018, 10, 21, 15, 30, 0); // 21/11/2018 15:30
+    const startDate = new Date(2018, 10, 21, 15, 30, 0); // 21/11/2018 15:30
 
-  function updateTimer() {
-    const now = new Date();
+    function updateTimer() {
+      const now = new Date();
 
-    // Anos, meses e dias com base no calendário
-    let years = now.getFullYear() - startDate.getFullYear();
-    let months = now.getMonth() - startDate.getMonth();
-    let days = now.getDate() - startDate.getDate();
-    let hours = now.getHours() - startDate.getHours();
-    let minutes = now.getMinutes() - startDate.getMinutes();
-    let seconds = now.getSeconds() - startDate.getSeconds();
+      let years = now.getFullYear() - startDate.getFullYear();
+      let months = now.getMonth() - startDate.getMonth();
+      let days = now.getDate() - startDate.getDate();
+      let hours = now.getHours() - startDate.getHours();
+      let minutes = now.getMinutes() - startDate.getMinutes();
+      let seconds = now.getSeconds() - startDate.getSeconds();
 
-    // Ajustes caso valores estejam negativos
-    if (seconds < 0) {
-      seconds += 60;
-      minutes--;
+      if (seconds < 0) {
+        seconds += 60;
+        minutes--;
+      }
+
+      if (minutes < 0) {
+        minutes += 60;
+        hours--;
+      }
+
+      if (hours < 0) {
+        hours += 24;
+        days--;
+      }
+
+      if (days < 0) {
+        const previousMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += previousMonth.getDate();
+        months--;
+      }
+
+      if (months < 0) {
+        months += 12;
+        years--;
+      }
+
+      document.getElementById("timer").textContent =
+        `${years} anos, ${months} meses, ${days} dias, ` +
+        `${hours}h, ${minutes}min, ${seconds}s`;
     }
-    if (minutes < 0) {
-      minutes += 60;
-      hours--;
-    }
-    if (hours < 0) {
-      hours += 24;
-      days--;
-    }
 
-    if (days < 0) {
-      const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-      days += prevMonth.getDate();
-      months--;
-    }
-
-    if (months < 0) {
-      months += 12;
-      years--;
-    }
-
-    document.getElementById("timer").textContent =
-      `${years} anos, ${months} meses, ${days} dias, ` +
-      `${hours}h, ${minutes}min, ${seconds}s`;
-  }
-
-  setInterval(updateTimer, 1000);
-  updateTimer();
-</script>
-  </body>
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
+</body>
 </html>
