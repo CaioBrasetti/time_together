@@ -63,11 +63,13 @@
   seconds = seconds < 0 ? 0 : seconds;
 
   const parts = [];
-  if (years > 0) parts.push(`${years} ano${years > 1 ? 's' : ''}`);
-  if (months > 0) parts.push(`${months} mês${months > 1 ? 'es' : ''}`);
-  if (days > 0) parts.push(`${days} dia${days > 1 ? 's' : ''}`);
-  if (hours > 0) parts.push(`${hours}h`);
-  if (minutes > 0) parts.push(`${minutes}min`);
+    if (years > 0) parts.push(`${years} ano${years > 1 ? 's' : ''}`);
+    if (months > 0) parts.push(`${months} mês${months > 1 ? 'es' : ''}`);
+    if (days > 0) parts.push(`${days} dia${days > 1 ? 's' : ''}`);
+    if (hours > 0) parts.push(`${hours}h`);
+    if (minutes > 0) parts.push(`${minutes}min`);
+
+    parts.push(`${seconds}s`);
   
   const displayText = parts.length > 0 ? parts.join(', ') : '0s';
 
