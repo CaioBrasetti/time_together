@@ -9,12 +9,10 @@
 </head>
 <body>
   <div class="card">
-    <div class="photo-wrapper">
-      <div class="carousel">
-        <img src="foto1.jpg" class="carousel-photo active" alt="Foto 1" />
-        <img src="foto2.png" class="carousel-photo" alt="Foto 2" />
-        <img src="foto3.jpg" class="carousel-photo" alt="Foto 3" />
-      </div>
+    <div class="carousel">
+      <img src="foto1.jpg" class="carousel-photo active" alt="Foto 1" />
+      <img src="foto2.png" class="carousel-photo" alt="Foto 2" />
+      <img src="foto3.jpg" class="carousel-photo" alt="Foto 3" />
     </div>
     <div class="text-wrapper">
       <h1>Estamos juntos há:</h1>
@@ -23,7 +21,7 @@
   </div>
 
   <script>
-    // CARROSSEL AUTOMÁTICO COM FADE
+    // CARROSSEL
     const photos = document.querySelectorAll('.carousel-photo');
     let current = 0;
 
@@ -33,14 +31,13 @@
       photos[current].classList.add('active');
     }
 
-    setInterval(showNextPhoto, 3000);
+    setInterval(showNextPhoto, 4000);
 
     // CONTADOR DE TEMPO
     function updateTimer() {
-      const startDate = new Date(2018, 10, 21, 15, 30); // Novembro = 10 (0-based)
+      const startDate = new Date(2018, 10, 21, 15, 30);
       const now = new Date();
-
-      let diff = Math.floor((now - startDate) / 1000); // diferença em segundos
+      let diff = Math.floor((now - startDate) / 1000);
 
       const years = Math.floor(diff / (365 * 24 * 3600));
       diff -= years * 365 * 24 * 3600;
@@ -55,7 +52,7 @@
       diff -= hours * 3600;
 
       const minutes = Math.floor(diff / 60);
-      const seconds = diff - minutes * 60;
+      const seconds = diff % 60;
 
       let parts = [];
       if (years > 0) parts.push(years + (years === 1 ? " ano" : " anos"));
