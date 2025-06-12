@@ -34,11 +34,13 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: auto;
+  height: auto;
+  max-height: 60vh; /* altura máxima: 60% da tela */
+  max-width: 100%;
+  object-fit: contain;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
   border-radius: 12px;
 }
 
