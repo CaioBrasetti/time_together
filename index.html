@@ -68,8 +68,7 @@
   if (days > 0) parts.push(`${days} dia${days > 1 ? 's' : ''}`);
   if (hours > 0) parts.push(`${hours}h`);
   if (minutes > 0) parts.push(`${minutes}min`);
-  if (seconds > 0) parts.push(`${seconds}s`);
-
+  
   const displayText = parts.length > 0 ? parts.join(', ') : '0s';
 
   document.getElementById("timer").textContent = displayText;
