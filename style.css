@@ -24,11 +24,12 @@ body {
 .carousel {
   position: relative;
   width: 100%;
-  padding-top: 100%; /* Altura proporcional reduzida para deixar a imagem menor */
-  max-height: 300px;  /* Limite máximo de altura para o carrossel */
+  padding-top: 100%; /* Mantém proporção quadrada */
+  max-height: 300px;  /* Limite máximo de altura */
   overflow: hidden;
   border-radius: 12px;
   margin-bottom: 16px;
+  background: #fff0f5; /* Fundo para evitar transparência */
 }
 
 .carousel-photo {
@@ -37,10 +38,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Ajusta a imagem para caber sem cortar */
   opacity: 0;
   transition: opacity 1s ease-in-out;
   border-radius: 12px;
+  background: #fff0f5; /* Fundo para espaço vazio da imagem */
 }
 
 .carousel-photo.active {
@@ -75,8 +77,8 @@ h1 {
   }
 
   .carousel {
-    padding-top: 70%;    /* altura proporcional menor */
-    max-height: 180px;   /* limite de altura menor */
+    padding-top: 90%;  /* Altura proporcional um pouco menor para celular */
+    max-height: 220px; /* Altura máxima reduzida */
   }
 
   .card {
