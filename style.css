@@ -1,4 +1,3 @@
-/* Fonte principal do conteúdo */
 body {
   margin: 0;
   padding: 0;
@@ -10,42 +9,54 @@ body {
   min-height: 100vh;
 }
 
-/* Cartão branco com sombra */
 .card {
   background: white;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   padding: 16px;
-  max-width: 460px; /* Aumentado de 400px para 460px */
-  width: 95%; /* Para preencher mais em telas pequenas */
+  max-width: 460px;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Envolve a imagem */
 .photo-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-/* Imagem com tamanho controlado */
-.main-photo {
+.carousel {
+  position: relative;
   width: 100%;
   max-width: 320px;
   max-height: 50vh;
-  object-fit: cover;
   border-radius: 12px;
-  margin-bottom: 16px;
+  overflow: hidden;
 }
 
-/* Envolve o texto */
+.carousel-photo {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 12px;
+}
+
+.carousel-photo.active {
+  opacity: 1;
+  position: relative;
+}
+
 .text-wrapper {
   text-align: center;
+  margin-top: 12px;
 }
 
-/* Título com fonte romântica */
 h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 2.2em;
@@ -53,7 +64,6 @@ h1 {
   margin: 0 0 10px;
 }
 
-/* Contador com estilo neutro e legível */
 .timer {
   font-size: 1.3em;
   color: #444;
