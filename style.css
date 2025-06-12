@@ -67,20 +67,20 @@ h1 {
 /* Ajustes para telas menores */
 @media (max-width: 480px) {
   h1 {
-    font-size: 1.8em;
+    font-size: 1.6em;
   }
 
   .timer {
-    font-size: 1em;
+    font-size: 0.9em;
   }
 
   .carousel {
-    padding-top: 90%;
-    max-height: 250px;
+    padding-top: 70%;    /* altura proporcional menor */
+    max-height: 180px;   /* limite de altura menor */
   }
 
   .card {
-    padding: 12px;
+    padding: 10px;
   }
 
   body {
