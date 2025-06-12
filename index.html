@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <img src="foto2.png" alt="Nós dois" class="main-photo">
+  <div class="card">
+    <img src="sua-foto.jpg" alt="Nós dois" class="main-photo">
     <h1>Estamos juntos há:</h1>
     <div id="timer" class="timer"></div>
   </div>
@@ -61,8 +61,6 @@
       if (days > 0) parts.push(`${days} dia${days > 1 ? 's' : ''}`);
       if (hours > 0) parts.push(`${hours}h`);
       if (minutes > 0) parts.push(`${minutes}min`);
-
-      // segundos sempre aparecem
       parts.push(`${seconds}s`);
 
       document.getElementById("timer").textContent = parts.join(', ');
