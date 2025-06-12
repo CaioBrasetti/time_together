@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Nosso Amor</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      background: #fff0f6;
+      padding: 20px;
+    }
+    img {
+      width: 200px;
+      margin: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Estamos juntos há:</h1>
+  <h2 id="timer"></h2>
+
+  <div>
+    <h3>Nossos momentos:</h3>
+    <img src="foto1.jpg" alt="Foto 1">
+    <img src="foto2.jpg" alt="Foto 2">
+    <!-- Pode adicionar mais imagens -->
+  </div>
+
+  <script>
+    const startDate = new Date("2020-06-01T00:00:00"); // coloque a data de início real aqui
+
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("timer").textContent =
+        `${days} dias, ${hours}h, ${minutes}min, ${seconds}s`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+</body>
+</html>
