@@ -24,7 +24,8 @@ body {
 .carousel {
   position: relative;
   width: 100%;
-  padding-top: 150%; /* Altura proporcional (3:2) */
+  padding-top: 100%; /* Altura proporcional reduzida para deixar a imagem menor */
+  max-height: 300px;  /* Limite máximo de altura para o carrossel */
   overflow: hidden;
   border-radius: 12px;
   margin-bottom: 16px;
@@ -74,7 +75,8 @@ h1 {
   }
 
   .carousel {
-    padding-top: 90%; /* reduz a altura proporcional da imagem */
+    padding-top: 90%;
+    max-height: 250px;
   }
 
   .card {
