@@ -54,24 +54,25 @@
     years--;
   }
 
-  // Corrigir negativos que podem ter escapado
-  years = years < 0 ? 0 : years;
-  months = months < 0 ? 0 : months;
-  days = days < 0 ? 0 : days;
-  hours = hours < 0 ? 0 : hours;
-  minutes = minutes < 0 ? 0 : minutes;
-  seconds = seconds < 0 ? 0 : seconds;
+  // garantir que não fiquem negativos
+  years = Math.max(0, years);
+  months = Math.max(0, months);
+  days = Math.max(0, days);
+  hours = Math.max(0, hours);
+  minutes = Math.max(0, minutes);
+  seconds = Math.max(0, seconds);
 
   const parts = [];
-    if (years > 0) parts.push(`${years} ano${years > 1 ? 's' : ''}`);
-    if (months > 0) parts.push(`${months} mês${months > 1 ? 'es' : ''}`);
-    if (days > 0) parts.push(`${days} dia${days > 1 ? 's' : ''}`);
-    if (hours > 0) parts.push(`${hours}h`);
-    if (minutes > 0) parts.push(`${minutes}min`);
+  if (years > 0) parts.push(`${years} ano${years > 1 ? 's' : ''}`);
+  if (months > 0) parts.push(`${months} mês${months > 1 ? 'es' : ''}`);
+  if (days > 0) parts.push(`${days} dia${days > 1 ? 's' : ''}`);
+  if (hours > 0) parts.push(`${hours}h`);
+  if (minutes > 0) parts.push(`${minutes}min`);
 
-    parts.push(`${seconds}s`);
-  
-  const displayText = parts.length > 0 ? parts.join(', ') : '0s';
+  // segundos sempre aparecem, mesmo se 0
+  parts.push(`${seconds}s`);
+
+  const displayText = parts.join(', ');
 
   document.getElementById("timer").textContent = displayText;
 }
