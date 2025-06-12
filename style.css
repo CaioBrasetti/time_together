@@ -24,7 +24,7 @@ body {
 .carousel {
   position: relative;
   width: 100%;
-  padding-top: 150%; /* Altura proporcional para vertical (3:2) */
+  padding-top: 150%; /* Altura proporcional (3:2) */
   overflow: hidden;
   border-radius: 12px;
   margin-bottom: 16px;
@@ -61,4 +61,28 @@ h1 {
 .timer {
   font-size: 1.3em;
   color: #444;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .timer {
+    font-size: 1em;
+  }
+
+  .carousel {
+    padding-top: 90%; /* reduz a altura proporcional da imagem */
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  body {
+    max-height: 100vh;
+    overflow: hidden;
+  }
 }
