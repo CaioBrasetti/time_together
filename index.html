@@ -21,7 +21,6 @@
   </div>
 
   <script>
-    // CARROSSEL
     const photos = document.querySelectorAll('.carousel-photo');
     let current = 0;
 
@@ -31,9 +30,8 @@
       photos[current].classList.add('active');
     }
 
-    setInterval(showNextPhoto, 4000);
-
-    // CONTADOR DE TEMPO
+    setInterval(showNextPhoto, 3000);
+    
     function updateTimer() {
       const startDate = new Date(2018, 10, 21, 15, 30);
       const now = new Date();
